@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Two</title>
+    <style>
+    h2 {
+  text-align: center;
+ } 
+ h3 {
+  text-align: center;
+ }
+ h4 {
+  text-align: center;
+ }
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color:black;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        footer{
+          background-color:black;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+          
+        }
+
+        h1 {
+            margin: 4;
+        }
+
+        nav {
+            display: flex;
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #000000;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Software Design Website</h1>
+        <nav>
+            <a href="#tab1">About Us</a>
+            <a href="#tab2">Services</a>
+            <a href="#tab3">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+          
+        </section>
+        <section id="tab1" class="active">
+            <h2>About Us</h2>
+            <p style="text-align: center;">We are a company dedicated to providing excellent services to our customers.</p>
+            <center><img src="https://imageio.forbes.com/blogs-images/chuckcohn/files/2017/05/Internal-business-meeting.jpg?format=jpg&height=600&width=1200&fit=bounds" alt="Business meeting" width="600" height="400"/><center/>
+            <h3>Our Services</h3>
+            <h4>Web Development</h4>
+            <p style="text-align: center;">We specialize in creating responsive and user-friendly websites.</p>
+            <center><img src="https://img.freepik.com/premium-photo/attractive-african-american-female-smiling-while-sitting-front-computer-with-tea-working_447912-1457.jpg" width="600" height="400"/><center/>
+            <h4>Graphic Design</h4>
+            <p style="text-align: center;">Our talented designers can bring your ideas to life with stunning visuals.</p>
+            <center><img src="https://img.freepik.com/premium-photo/colorful-ideas-bringing-happiness-flat-vector-illustration-vibrant-life-flat_974613-1137.jpg" width="600" height="400"></center>
+        </section>
+
+        <section id="tab2">
+            <h2>Services</h2>
+        </section>
+
+        <section id="tab3">
+            <h2>Contact Us</h2>
+        </section>
+    </main>
+    
+    <footer>
+  <p style="text-align: center">&copy;2024 The Tamryn Company. All rights reserved.</p>
+ </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('main section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
